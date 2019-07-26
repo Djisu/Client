@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_24_223942) do
+ActiveRecord::Schema.define(version: 2019_07_26_080403) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "street"
@@ -20,12 +20,52 @@ ActiveRecord::Schema.define(version: 2019_07_24_223942) do
     t.index ["customer_id"], name: "index_addresses_on_customer_id"
   end
 
+  create_table "banks", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "credits", force: :cascade do |t|
+    t.integer "customer_id"
+    t.integer "transaction_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_credits_on_customer_id"
+    t.index ["transaction_id"], name: "index_credits_on_transaction_id"
+  end
+
   create_table "customers", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.string "email"
     t.datetime "birth_date"
     t.decimal "balance"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "bank_id"
+    t.index ["bank_id"], name: "index_customers_on_bank_id"
+  end
+
+  create_table "debits", force: :cascade do |t|
+    t.integer "customer_id"
+    t.integer "transaction_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_debits_on_customer_id"
+    t.index ["transaction_id"], name: "index_debits_on_transaction_id"
+  end
+
+  create_table "savings", force: :cascade do |t|
+    t.decimal "debit"
+    t.decimal "credit"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.decimal "saving"
+    t.decimal "withdrawal"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
