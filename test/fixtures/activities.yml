@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  saving: MyString
+  decimal,: MyString
+  withdrawal: MyString
+  decimal: MyString
+
+two:
+  saving: MyString
+  decimal,: MyString
+  withdrawal: MyString
+  decimal: MyString

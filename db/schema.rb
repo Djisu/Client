@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_26_080403) do
+ActiveRecord::Schema.define(version: 2019_07_27_054935) do
+
+  create_table "activities", force: :cascade do |t|
+    t.string "saving"
+    t.string "decimal"
+    t.string "withdrawal"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "addresses", force: :cascade do |t|
     t.string "street"
@@ -59,13 +67,6 @@ ActiveRecord::Schema.define(version: 2019_07_26_080403) do
   create_table "savings", force: :cascade do |t|
     t.decimal "debit"
     t.decimal "credit"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "transactions", force: :cascade do |t|
-    t.decimal "saving"
-    t.decimal "withdrawal"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
