@@ -2,6 +2,6 @@ class Activity < ApplicationRecord
     has_many :debits
     has_many :customers, through: :debits
 
-    has_many :withdrawal
-    has_many :customers, through: :withdrawal  
+    has_many :withdrawals
+    has_many :customers, through: :withdrawals  
 end
