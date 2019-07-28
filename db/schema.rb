@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2019_07_28_072043) do
     t.decimal "balance"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "bank_id"
+    t.integer "bank_id: "
     t.integer "company_id"
     t.index ["bank_id"], name: "index_customers_on_bank_id"
     t.index ["company_id"], name: "index_customers_on_company_id"
